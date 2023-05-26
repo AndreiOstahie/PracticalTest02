@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,9 +51,8 @@ public class PracticalTest02MainActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-
             // Retrieves the client address and port. Checks if they are empty or not
-            //  Checks if the server thread is alive. Then creates a new client thread with the address, port, city and information type
+            //  Checks if the server thread is alive. Then creates a new client thread with the address, port, operation data
             //  and starts it
             String clientAddress = clientAddressEditText.getText().toString();
             String clientPort = clientPortEditText.getText().toString();
@@ -88,9 +86,8 @@ public class PracticalTest02MainActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-
             // Retrieves the client address and port. Checks if they are empty or not
-            //  Checks if the server thread is alive. Then creates a new client thread with the address, port, city and information type
+            //  Checks if the server thread is alive. Then creates a new client thread with the address, port, city and operation data
             //  and starts it
             String clientAddress = clientAddressEditText.getText().toString();
             String clientPort = clientPortEditText.getText().toString();

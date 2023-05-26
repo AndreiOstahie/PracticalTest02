@@ -35,17 +35,17 @@ public class ClientThread extends Thread {
             BufferedReader bufferedReader = Utilities.getReader(socket);
             PrintWriter printWriter = Utilities.getWriter(socket);
 
-            // sends the city and information type to the server
+            // sends the operation data to the server
             printWriter.println(operationData);
             printWriter.flush();
 
             String operationResult;
 
-            // reads the weather information from the server
+            // reads operation result from the server
             while ((operationResult = bufferedReader.readLine()) != null) {
                 final String finalizedOperationResult = operationResult;
 
-                // updates the UI with the weather information. This is done using postt() method to ensure it is executed on UI thread
+                // updates the UI with the operation result. This is done using post() method to ensure it is executed on UI thread
                 resultTextView.post(() -> resultTextView.setText(finalizedOperationResult));
             }
         } // if an exception occurs, it is logged

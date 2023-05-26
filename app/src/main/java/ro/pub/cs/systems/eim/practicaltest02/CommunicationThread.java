@@ -2,22 +2,10 @@ package ro.pub.cs.systems.eim.practicaltest02;
 
 import android.util.Log;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.HashMap;
-
-import cz.msebera.android.httpclient.HttpEntity;
-import cz.msebera.android.httpclient.HttpResponse;
-import cz.msebera.android.httpclient.client.HttpClient;
-import cz.msebera.android.httpclient.client.methods.HttpGet;
-import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
-import cz.msebera.android.httpclient.util.EntityUtils;
 
 
 public class CommunicationThread extends Thread {
@@ -47,7 +35,7 @@ public class CommunicationThread extends Thread {
             PrintWriter printWriter = Utilities.getWriter(socket);
             Log.i(Constants.TAG, "[COMMUNICATION THREAD] Waiting for parameters from client (city / information type!");
 
-            // Read the city and informationType values sent by the client
+            // Read operation data sent by the client
             String operationData = bufferedReader.readLine();
             if (operationData == null || operationData.isEmpty()) {
                 Log.e(Constants.TAG, "[COMMUNICATION THREAD] Error receiving parameters from client (city / information type!");
@@ -81,7 +69,7 @@ public class CommunicationThread extends Thread {
                         result = String.valueOf(y);
                     break;
                 default:
-                    result = "[COMMUNICATION THREAD] Wrong information type (all / temperature / wind_speed / condition / humidity / pressure)!";
+                    result = "[COMMUNICATION THREAD] Error";
             }
 
             // Send the result back to the client
